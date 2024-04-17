@@ -1,0 +1,16 @@
+/* Initial Styling */
+
+html,
+body {
+    text-align: center;
+    height: 100%;
+    color: #FAF9F6;
+    font-family: "Indie Flower", cursive;
+}
+
+.panel-body {
+    background: #fafafa;
+    border-radius: 4px;
+    box-shadow: 0px 0px 25px #666;
+}
+
