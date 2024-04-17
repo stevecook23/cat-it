@@ -5,17 +5,75 @@ body {
     text-align: center;
     height: 100%;
     color: #FAF9F6;
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Indie Flower', sans-serif;
 }
 
-/* Game Area */
+h1, h2, h3, h4, h5, h6, p {
+    color:#333;
+}
 
-.gamespace {
+/* Modal */
+.instructions {
     background: #EAA95D;
-    border-radius: 4px;
+    border-radius: 5px;
+    border-color: #F75252;
     box-shadow: 0px 0px 25px #666;
+}
+
+.modal {
+    color: #333;
+    text-align: left;
+}
+
+.modal-body {
+    font-size: 20px;
+}
+
+.modal-footer {
+    text-align: right;
+}
+
+.header {
+    font-size: 26px;
+}
+
+/* Game Interface */
+
+.btn {
+    box-shadow: 0px 0px 25px #c0c0c0;
+    border-radius: 2px;
+}
+
+.loss {
+    display: none;
 }
 
 .score {
     font-size: 20px;
+}
+
+.game-buttons {
+    text-align: center;
+}
+
+.btn-lg {
+    padding: 10px 10px;
+}
+
+.btn {
+    white-space: normal;
+}
+
+.button {
+    width: 19vw;
+}
+
+.row {
+    text-align: center
+}
+
+@media (max-width: 423px) {
+    button {
+        width: 81px;
+    }
 }
