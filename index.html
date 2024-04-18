@@ -26,46 +26,54 @@
 
                 <div class="row">
 
-                    <div class="col-sm-2"></div>
-                    <div class="col-sm-8" id="gamespace">
-
+                    <div class="row">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-8" id="gamespace">
+                            <!--Game Buttons-->
+                        <div class="row align-items-start buttonsrow">
+                            <div class="col-sm-auto">
+                                <button id="strokeIt" onClick="gameButton()" data-mdb-button-init data-mdb-ripple-init
+                                    class="btn btn-dark btn-sq-responsive" data-type="Stroke It">Stroke It</button>
+                            </div>
+                            <div class="col-sm-auto ms-auto">
+                                <button id="brushIt" onClick="gameButton()" data-mdb-button-init data-mdb-ripple-init
+                                    class="btn btn-dark btn-sq-responsive" data-type="Brush It">Brush It</button>
+                            </div>
+                        </div>
+                        <div class="row" id="spacer"></div>
+                        <div class="row align-items-end buttonsrow">
+                            <div class="col-sm-auto">
+                                <button id="feedIt" onClick="gameButton()" data-mdb-button-init data-mdb-ripple-init
+                                    class="btn btn-dark btn-sq-responsive" data-type="Feed It">Feed It</button>
+                            </div>
+                            <div class="col-sm-auto ms-auto">
+                                <button id="playTime" onClick="gameButton()" data-mdb-button-init data-mdb-ripple-init
+                                    class="btn btn-dark btn-sq-responsive" data-type="Play Time">Play Time</button>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="col-sm-2"></div>
                     </div>
-                    <div class="col-sm-2">
-                    </div>
+                    
                 </div>
                 <div class="row" id="scorespace">
-                    <div class="col-md-4">
+                    <div class="col-sm-4">
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-sm-2">
                         <h5 class="score">High Score: <span id="highScore">0</span></h5>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-sm-2">
                         <h5 class="score">Your Score: <span id="score">0</span></h5>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-sm-4">
+                    </div>
+                    <div class="col-sm-4">
                     </div>
                 </div>
 
 
 
-                <!--Game Buttons-->
-                <div class="row">
 
-                    <button id="strokeIt" onClick="gameButton()" data-mdb-button-init data-mdb-ripple-init
-                        class="btn btn-dark btn-sq-responsive" data-type="Stroke It">Stroke It</button>
-
-
-                    <button id="brushIt" onClick="gameButton()" data-mdb-button-init data-mdb-ripple-init
-                        class="btn btn-dark btn-sq-responsive" data-type="Brush It">Brush It</button>
-
-                    <button id="feedIt" onClick="gameButton()" data-mdb-button-init data-mdb-ripple-init
-                        class="btn btn-dark btn-sq-responsive" data-type="Feed It">Feed It</button>
-
-                    <button id="playTime" onClick="gameButton()" data-mdb-button-init data-mdb-ripple-init
-                        class="btn btn-dark btn-sq-responsive" data-type="Play Time">Play Time</button>
-
-
-                </div>
             </div>
         </div>
 
