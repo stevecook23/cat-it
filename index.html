@@ -24,9 +24,9 @@
             <div class="col-sm-12">
                 <h1 class="title">Cat-It!</h1>
 
-                <div class="row">
 
-                    <div class="row">
+
+                    <div class="row px-0" >
                         <div class="col-sm-2"></div>
                         <div class="col-sm-8" id="gamespace">
                             <!--Game Buttons-->
@@ -47,6 +47,14 @@
                                     class="btn btn-dark btn-sq-responsive" data-type="Feed It">Feed It</button>
                             </div>
                             <div class="col-sm-auto ms-auto">
+                                <h5 class="score">Score: <span id="highScore">0</span></h5>
+                                
+                            </div>
+                            <div class="col-sm-auto ms-auto">
+                                <h5 class="score">High Score: <span id="highScore">0</span></h5>
+                                
+                            </div>
+                            <div class="col-sm-auto ms-auto">
                                 <button id="playTime" onClick="gameButton()" data-mdb-button-init data-mdb-ripple-init
                                     class="btn btn-dark btn-sq-responsive" data-type="Play Time">Play Time</button>
                             </div>
@@ -54,28 +62,15 @@
                         </div>
                         <div class="col-sm-2"></div>
                     </div>
-                    
+
                 </div>
-                <div class="row" id="scorespace">
-                    <div class="col-sm-4">
-                    </div>
-                    <div class="col-sm-2">
-                        <h5 class="score">High Score: <span id="highScore">0</span></h5>
-                    </div>
-                    <div class="col-sm-2">
-                        <h5 class="score">Your Score: <span id="score">0</span></h5>
-                    </div>
-                    <div class="col-sm-4">
-                    </div>
-                    <div class="col-sm-4">
-                    </div>
-                </div>
+                
 
 
 
 
             </div>
-        </div>
+
 
 
         <!--Screen Rotation for Smart Phones-->

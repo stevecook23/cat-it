@@ -2,3 +2,4 @@
 function loadModal() {
     $('#instructions').modal('show');
 }
+
