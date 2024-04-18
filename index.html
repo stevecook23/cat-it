@@ -10,6 +10,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="assets\css\style.css">
+    <!--CDN Links for MDBootstrap 5 (makes the square buttons work)-->
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css" rel="stylesheet" />
     <title>Cat-It</title>
 </head>
 
@@ -51,26 +58,22 @@
 
             <!--Game Buttons-->
             <div class="row">
-                <div class="col-sm-3">
-                    <br>
-                    <button id="strokeIt" onClick="gameButton()" class="btn btn-warning btn-lg disable"
+
+                    <button id="strokeIt" onClick="gameButton()" data-mdb-button-init data-mdb-ripple-init class="btn btn-dark btn-sq-responsive"
                         data-type="Stroke It">Stroke It</button>
-                </div>
-                <div class="col-sm-3">
-                    <br>
-                    <button id="brushIt" onClick="gameButton()" class="btn btn-danger btn-lg disable"
+
+
+                    <button id="brushIt" onClick="gameButton()" data-mdb-button-init data-mdb-ripple-init class="btn btn-dark btn-sq-responsive"
                         data-type="Brush It">Brush It</button>
-                </div>
-                <div class="col-sm-3">
-                    <br>
-                    <button id="feedIt" onClick="gameButton()" class="btn btn-info btn-lg disable"
+
+
+
+                    <button id="feedIt" onClick="gameButton()" data-mdb-button-init data-mdb-ripple-init class="btn btn-dark btn-sq-responsive"
                         data-type="Feed It">Feed It</button>
-                </div>
-                <div class="col-sm-3">
-                    <br>
-                    <button id="playTime" onClick="gameButton()" class="btn btn-primary btn-lg disable"
+
+                    <button id="playTime" onClick="gameButton()" data-mdb-button-init data-mdb-ripple-init class="btn btn-dark btn-sq-responsive"
                         data-type="Play Time">Play Time</button>
-                </div>
+
             </div>
             <br>
             <br>
@@ -79,14 +82,13 @@
     <br><br>
 
     <!--Screen Rotation for Smart Phones-->
-    <div class="modal fade" tabindex="-1" role="dialog" id='rotateScreenModal'>
+    <div class="modal fade" tabindex="-1" role="dialog" id='instructions'>
         <div class="modal-dialog" role="document">
             <!--Modal-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" style='text-align: right;'
-                        aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Cat-It!</h4>
+                    <h3 class="modal-title, ms-auto">Cat-It!</h3>
+                    <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <p>Click the correct icon before the cat loses interest! But be warned... the more you play, the
@@ -95,24 +97,33 @@
                             experience!</strong></p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success modal-btn" data-dismiss="modal">Play</button>
-                    <button type="button" class="btn btn-success modal-btn" data-dismiss="modal">High Scores</button>
+                    <button type="button" class="btn btn-success modal-btn" data-bs-dismiss="modal">Play</button>
+                    <button type="button" class="btn btn-success modal-btn">High Scores</button>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- My JavaScript -->
     <script type="text/javascript" src="assets\js\script.js"></script>
+
+    <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>
+
+    <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+
+    <!-- MDB -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"></script>
 
 </html>
