@@ -5,18 +5,21 @@ body {
     text-align: center;
     height: 100%;
     color: #FAF9F6;
-    font-family: 'Indie Flower', sans-serif;
+    font-family: 'Indie Flower', sans-serif !important;
 }
 
 h1, h2, h3, h4, h5, h6, p {
     color:#333;
 }
 
+.title {
+    font-size: 50px;
+    margin-top: 50px;
+}
+
 /* Modal */
 .instructions {
-    background: #EAA95D;
     border-radius: 5px;
-    border-color: #F75252;
     box-shadow: 0px 0px 25px #666;
 }
 
@@ -24,7 +27,6 @@ h1, h2, h3, h4, h5, h6, p {
     color: #333;
     text-align: left;
 }
-
 
 .modal-body {
     font-size: 20px;
@@ -40,8 +42,22 @@ h1, h2, h3, h4, h5, h6, p {
 
 /* Game Interface */
 
-.loss {
-    display: none;
+#scorespace {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #EAA95D;
+    border-radius: 5px;
+    border-color: #F75252;
+}
+
+#gamespace {
+    background-image: url('/assets/images/default_background.png'); 
+    background-size: cover; 
+    background-position: center; 
+    height: 600px;
+    width: 100%;
+    max-width: 100%;
 }
 
 .score {
@@ -50,6 +66,22 @@ h1, h2, h3, h4, h5, h6, p {
 
 .game-buttons {
     text-align: center;
+}
+
+#strokeIt {
+    position: absolute; top:0; right:0;
+}
+
+#brushIt {
+    position: absolute; bottom:0; right:0;
+}
+
+#feedIt {
+    position: absolute; bottom:0; left:0;
+}
+
+#playTime {
+    position: absolute; top:0; left:0;
 }
 
 /* MDB Button Style for Extra Large Screen */
@@ -105,6 +137,7 @@ h1, h2, h3, h4, h5, h6, p {
 
 .btn {
     white-space: normal;
+    font-size: 20px !important;
 }
 
 .button {
