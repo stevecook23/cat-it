@@ -20,16 +20,16 @@
 
 <body onload='loadModal()'>
     <div class="container">
-        <div class="row">
+        <div class="row mx-0">
             <div class="col-sm-12">
                 <h1 class="title">Cat-It!</h1>
 
 
 
-                    <div class="row px-0" >
-                        <div class="col-sm-2"></div>
-                        <div class="col-sm-8" id="gamespace">
-                            <!--Game Buttons-->
+                <div class="row px-0" id="gamespace-row">
+
+                    <div class="col-12" id="gamespace">
+                        <!--Game Buttons-->
                         <div class="row align-items-start buttonsrow">
                             <div class="col-sm-auto">
                                 <button id="strokeIt" onClick="gameButton()" data-mdb-button-init data-mdb-ripple-init
@@ -48,28 +48,28 @@
                             </div>
                             <div class="col-sm-auto ms-auto">
                                 <h5 class="score">Score: <span id="highScore">0</span></h5>
-                                
+
                             </div>
                             <div class="col-sm-auto ms-auto">
                                 <h5 class="score">High Score: <span id="highScore">0</span></h5>
-                                
+
                             </div>
                             <div class="col-sm-auto ms-auto">
                                 <button id="playTime" onClick="gameButton()" data-mdb-button-init data-mdb-ripple-init
                                     class="btn btn-dark btn-sq-responsive" data-type="Play Time">Play Time</button>
                             </div>
                         </div>
-                        </div>
-                        <div class="col-sm-2"></div>
                     </div>
 
                 </div>
-                
-
-
-
 
             </div>
+
+
+
+
+
+        </div>
 
 
 
@@ -79,7 +79,7 @@
                 <!--Modal-->
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h3 class="modal-title, ms-auto">Instructions</h3>
+                        <h1 class="modal-title, ms-auto">Cat-It!</h1>
                         <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="modal"></button>
                     </div>
                     <div class="modal-body">
@@ -88,7 +88,6 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-success modal-btn" data-bs-dismiss="modal">Play</button>
-                        <button type="button" class="btn btn-success modal-btn">High Scores</button>
                     </div>
                 </div>
             </div>
