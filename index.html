@@ -47,7 +47,7 @@
                                     class="btn btn-dark btn-sq-responsive" data-type="Feed It">Feed It</button>
                             </div>
                             <div class="col-sm-auto ms-auto">
-                                <h5 class="score">Score: <span id="highScore">0</span></h5>
+                                <h5 class="score">Score: <span id="score">0</span></h5>
 
                             </div>
                             <div class="col-sm-auto ms-auto">
@@ -73,10 +73,9 @@
 
 
 
-        <!--Screen Rotation for Smart Phones-->
+        <!--Instructions Modal-->
         <div class="modal fade" tabindex="-1" role="dialog" id='instructions'>
             <div class="modal-dialog" role="document">
-                <!--Modal-->
                 <div class="modal-content">
                     <div class="modal-header">
                         <h1 class="modal-title, ms-auto">Cat-It!</h1>
@@ -87,12 +86,29 @@
                             quicker it gets!</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success modal-btn" data-bs-dismiss="modal">Play</button>
+                        <button type="button" class="btn btn-success modal-btn" data-bs-dismiss="modal" id="gameStart">Play</button>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!--Loss Modal-->
+        <div class="modal fade" tabindex="-1" role="dialog" id='loss'>
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title, ms-auto">Cat-It!</h1>
+                        <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>You lose!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success modal-btn" data-bs-dismiss="modal" id="gameStart">Play</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- My JavaScript -->
         <script type="text/javascript" src="assets\js\script.js"></script>
 

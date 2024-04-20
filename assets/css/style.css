@@ -120,10 +120,10 @@ justify-content: center;
     /* Large Screen */
     @media (max-width:991px) {
     .btn-sq-responsive {
-    width: 75px !important;
+    width: 100px !important;
     max-width: 100% !important;
     max-height: 100% !important;
-    height: 75px !important;
+    height: 100px !important;
     font-size:18px;
     }
     }
