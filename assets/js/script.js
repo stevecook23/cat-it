@@ -80,6 +80,11 @@ document.getElementById("playTime").addEventListener("click", function() {
     playRandomFile('playTime');
 });
 
+// Event listener to start the game 1000ms after the play button is clicked
+document.getElementById('gameStart').addEventListener('click', function() {
+    setTimeout(playRandomFile, 1000);
+});
+
 // Function to randomly play one of the audio files, log the instruction that's been called, and check to see if the right button has been pressed
 function playRandomFile() {
     
@@ -144,12 +149,43 @@ function playRandomFile() {
     }, initialTimeout);
 }
 
-// Function to start the game 1000ms after the play button is clicked
-document.getElementById('gameStart').addEventListener('click', function() {
-    setTimeout(playRandomFile, 1000);
-});
-
 // Modal to bring up on loss of game
 function loadLossModal() {
     $('#loss').modal('show');
+    updateHighScore();
 }
+
+// Function to update the high score using local storage
+function updateHighScore() {
+    if (score > localStorage.getItem('highScore')) {
+        localStorage.setItem('highScore', score);
+    }
+    document.getElementById('highScore').textContent = localStorage.getItem('highScore');
+}
+
+// Function to load the high score from local storage
+function loadHighScore() {
+    if (!localStorage.getItem('highScore')) {
+        localStorage.setItem('highScore', 0);
+    }
+    document.getElementById('highScore').textContent = localStorage.getItem('highScore');
+}
+
+// Function to reset the high score
+function resetHighScore() {
+    localStorage.setItem('highScore', 0);
+    document.getElementById('highScore').textContent = localStorage.getItem('highScore');
+}
+
+// Function to reset the game
+function resetGame() {
+    score = 0;
+    gameOver = false;
+    initialTimeout = 2000;
+    previousIndex = -1;
+    document.getElementById('score').textContent = score;
+    document.getElementById('gameStartAgain').addEventListener('click', function() {
+        setTimeout(playRandomFile, 1000);
+    });
+}
+
