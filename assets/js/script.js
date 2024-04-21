@@ -2,16 +2,25 @@
 function loadModal() {
     $('#instructions').modal('show');
 }
-//Score variable to keep track of the score
+// Score variable to keep track of the score
 let score = 0;
 
-//Instruction variable to keep track of the given instruction
+// Instruction variable to keep track of the given instruction
 let instruction;
 
-//Variable that will store which button has been pressed
+// Variable that will store which button has been pressed
 let buttonPress;
 
-// Functions for each button to change the background image and matching event listeners to store the button press
+// Variable to set the initial timeout duration
+let initialTimeout = 2000;
+
+// Variable to check if the game is over
+let gameOver = false; 
+
+// Variable to store the previous index for the first turn
+let previousIndex = -1;
+
+// Function for Brush It button to change the background image and matching event listener to store the button press
 function changeBackgroundToBrushIt() {
     var gamespace = document.getElementById("gamespace");
     gamespace.style.backgroundImage = "url('/assets/images/brushit_background.png')";
@@ -26,6 +35,7 @@ document.getElementById("brushIt").addEventListener("click", function() {
     playRandomFile('brushIt');
 });
 
+// Function for Stroke It button to change the background image and matching event listener to store the button press
 function changeBackgroundToStrokeIt() {
     var gamespace = document.getElementById("gamespace");
     gamespace.style.backgroundImage = "url('/assets/images/strokeit_background.png')";
@@ -40,7 +50,7 @@ document.getElementById("strokeIt").addEventListener("click", function() {
     playRandomFile('strokeIt');
 });
 
-
+// Function for Feed It button to change the background image and matching event listener to store the button press
 function changeBackgroundToFeedIt() {
     var gamespace = document.getElementById("gamespace");
     gamespace.style.backgroundImage = "url('/assets/images/feedit_background.png')";
@@ -55,6 +65,7 @@ document.getElementById("feedIt").addEventListener("click", function() {
     playRandomFile('feedIt');
 });
 
+// Function for Play Time button to change the background image and matching event listener to store the button press
 function changeBackgroundToPlayTime() {
     var gamespace = document.getElementById("gamespace");
     gamespace.style.backgroundImage = "url('/assets/images/playtime_background.png')";
@@ -71,9 +82,19 @@ document.getElementById("playTime").addEventListener("click", function() {
 
 // Function to randomly play one of the audio files, log the instruction that's been called, and check to see if the right button has been pressed
 function playRandomFile() {
+    
+    // Check if the game is over
+    if (gameOver) {
+        return;
+    }
+    
     // Maths to choose a random instruction from the four available options
     const audioFiles = ['/assets/audio/brushit.wav', '/assets/audio/strokeit.wav', '/assets/audio/playtime.wav', '/assets/audio/feedit.wav'];
-    const randomIndex = Math.floor(Math.random() * audioFiles.length);
+    let randomIndex;
+    do {
+        randomIndex = Math.floor(Math.random() * audioFiles.length);
+    } while (randomIndex === previousIndex);
+    previousIndex = randomIndex;
     const randomAudio = audioFiles[randomIndex];
     
     // Switch statement to log the instruction that's been called
@@ -112,10 +133,15 @@ function playRandomFile() {
         if (instruction && buttonPress === correctButtonId) {
             score++;
             document.getElementById('score').textContent = score;
+            initialTimeout -= 10;
         } else {
+            gameOver = true;
             loadLossModal();
         }
-    }, 2000);
+        if (!gameOver) {
+            setTimeout(playRandomFile, initialTimeout);
+        }
+    }, initialTimeout);
 }
 
 // Function to start the game 1000ms after the play button is clicked
