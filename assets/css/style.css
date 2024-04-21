@@ -60,7 +60,7 @@ h1, h2, h3, h4, h5, h6, p {
     transform: translate(-50%, -50%);
     border-radius: 5px;
     border-style: solid;
-    border-width: 5px;
+    border-width: 30px;
     border-color: #F75252;
 }
 
@@ -74,7 +74,6 @@ h1, h2, h3, h4, h5, h6, p {
 #gamespace-row {
 justify-content: center;
 }
-
 
 
 .score {
@@ -109,7 +108,10 @@ justify-content: center;
     left: 0;
 }
 
-/* MDB Button Styles
+/* Hover styling for the buttons */
+.game-icon:hover{
+    background-color: #205081;
+}
 
 /* Extra Large Screen */
 @media (max-width:3920px) {
