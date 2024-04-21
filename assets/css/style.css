@@ -63,14 +63,10 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 #scorespace {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #EAA95D;
-    border-radius: 5px;
-    border-style: solid;
-    border-width: 5px;
-    border-color: #F75252;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 #gamespace-row {
@@ -87,21 +83,30 @@ justify-content: center;
     text-align: center;
 }
 
-#petIt {
-    position: absolute; top:0; right:0;
+#petItIcon {
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
-#brushIt {
-    position: absolute; bottom:0; right:0;
+#brushItIcon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 
-#feedIt {
-    position: absolute; bottom:0; left:0;
+#feedItIcon {
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
-#playTime {
-    position: absolute; top:0; left:0;
+#playTimeIcon {
+    position: absolute;
+    top: 0;
+    left: 0;
 }
+
 /* MDB Button Styles
 
 /* Extra Large Screen */
@@ -176,13 +181,16 @@ justify-content: center;
 
 /* Progress Bar */
 #myProgress {
-    width: 100%;
+    width: 30%;
     background-color: grey;
+    position: absolute;
+    left: 33%;
+    bottom: 5px;
   }
   
   #myBar {
     width: 100%;
-    height: 30px;
+    height: 10px;
     background-color: green;
   }
 
