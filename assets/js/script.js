@@ -20,6 +20,9 @@ let gameOver = false;
 // Variable to store the previous index for the first turn
 let previousIndex = -1;
 
+// Function to load the high score from local storage
+loadHighScore();
+
 // Function for Brush It button to change the background image and matching event listener to store the button press
 function changeBackgroundToBrushIt() {
     var gamespace = document.getElementById("gamespace");
@@ -31,23 +34,19 @@ function changeBackgroundToBrushIt() {
 document.getElementById("brushIt").addEventListener("click", function() {
     changeBackgroundToBrushIt();
     buttonPress = 'brushIt';
-    gameButton();
-    playRandomFile('brushIt');
 });
 
-// Function for Stroke It button to change the background image and matching event listener to store the button press
-function changeBackgroundToStrokeIt() {
+// Function for Pet It button to change the background image and matching event listener to store the button press
+function changeBackgroundToPetIt() {
     var gamespace = document.getElementById("gamespace");
-    gamespace.style.backgroundImage = "url('/assets/images/strokeit_background.png')";
+    gamespace.style.backgroundImage = "url('/assets/images/petit_background.png')";
     setTimeout(function() {
         gamespace.style.backgroundImage = "url('/assets/images/default_background.png')";
     }, 1000);
 }
-document.getElementById("strokeIt").addEventListener("click", function() {
-    changeBackgroundToStrokeIt();
-    buttonPress = 'strokeIt';
-    gameButton();
-    playRandomFile('strokeIt');
+document.getElementById("petIt").addEventListener("click", function() {
+    changeBackgroundToPetIt();
+    buttonPress = 'petIt';
 });
 
 // Function for Feed It button to change the background image and matching event listener to store the button press
@@ -61,8 +60,6 @@ function changeBackgroundToFeedIt() {
 document.getElementById("feedIt").addEventListener("click", function() {
     changeBackgroundToFeedIt();
     buttonPress = 'feedIt';
-    gameButton();
-    playRandomFile('feedIt');
 });
 
 // Function for Play Time button to change the background image and matching event listener to store the button press
@@ -76,8 +73,6 @@ function changeBackgroundToPlayTime() {
 document.getElementById("playTime").addEventListener("click", function() {
     changeBackgroundToPlayTime();
     buttonPress = 'playTime';
-    gameButton();
-    playRandomFile('playTime');
 });
 
 // Event listener to start the game 1000ms after the play button is clicked
@@ -94,7 +89,7 @@ function playRandomFile() {
     }
     
     // Maths to choose a random instruction from the four available options
-    const audioFiles = ['/assets/audio/brushit.wav', '/assets/audio/strokeit.wav', '/assets/audio/playtime.wav', '/assets/audio/feedit.wav'];
+    const audioFiles = ['/assets/audio/brushit.wav', '/assets/audio/petit.wav', '/assets/audio/playtime.wav', '/assets/audio/feedit.wav'];
     let randomIndex;
     do {
         randomIndex = Math.floor(Math.random() * audioFiles.length);
@@ -107,8 +102,8 @@ function playRandomFile() {
         case '/assets/audio/brushit.wav':
             instruction = "Brush It";
             break;
-        case '/assets/audio/strokeit.wav':
-            instruction = "Stroke It";
+        case '/assets/audio/petit.wav':
+            instruction = "Pet It";
             break;
         case '/assets/audio/playtime.wav':
             instruction = "Play Time";
@@ -127,7 +122,7 @@ function playRandomFile() {
     // Object to map the correct button to the instruction
     var correctButtons = {
         'Brush It': 'brushIt',
-        'Stroke It': 'strokeIt',
+        'Pet It': 'petIt',
         'Play Time': 'playTime',
         'Feed It': 'feedIt'
     };
@@ -171,11 +166,25 @@ function loadHighScore() {
     document.getElementById('highScore').textContent = localStorage.getItem('highScore');
 }
 
-// Function to reset the high score
-function resetHighScore() {
+// Function to listen for the Reset High Score button being clicked off Instructions modal, and then resetting the high score
+document.getElementById('resetHighScore').addEventListener('click', function() {
+    console.log("Reset High Score button clicked");
     localStorage.setItem('highScore', 0);
     document.getElementById('highScore').textContent = localStorage.getItem('highScore');
-}
+});
+
+// Function to listen for the Reset High Score button being clicked off Loss modal, and then resetting the high score
+document.getElementById('resetHighScoreLoss').addEventListener('click', function() {
+    console.log("Reset High Score button clicked");
+    localStorage.setItem('highScore', 0);
+    document.getElementById('highScore').textContent = localStorage.getItem('highScore');
+});
+
+// Event listener for when the 'Play Again' button is clicked
+document.getElementById('gameStartAgain').addEventListener('click', function() {
+    resetGame();
+    setTimeout(playRandomFile, 1000);
+});
 
 // Function to reset the game
 function resetGame() {
@@ -184,8 +193,5 @@ function resetGame() {
     initialTimeout = 2000;
     previousIndex = -1;
     document.getElementById('score').textContent = score;
-    document.getElementById('gameStartAgain').addEventListener('click', function() {
-        setTimeout(playRandomFile, 1000);
-    });
-}
+};
 

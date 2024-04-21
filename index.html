@@ -32,18 +32,18 @@
                         <!--Game Buttons-->
                         <div class="row align-items-start buttonsrow">
                             <div class="col-sm-auto">
-                                <button id="strokeIt" onClick="gameButton()" data-mdb-button-init data-mdb-ripple-init
-                                    class="btn btn-dark btn-sq-responsive" data-type="Stroke It">Stroke It</button>
+                                <button id="petIt" data-mdb-button-init data-mdb-ripple-init
+                                    class="btn btn-dark btn-sq-responsive" data-type="Pet It">Pet It</button>
                             </div>
                             <div class="col-sm-auto ms-auto">
-                                <button id="brushIt" onClick="gameButton()" data-mdb-button-init data-mdb-ripple-init
+                                <button id="brushIt" data-mdb-button-init data-mdb-ripple-init
                                     class="btn btn-dark btn-sq-responsive" data-type="Brush It">Brush It</button>
                             </div>
                         </div>
                         <div class="row" id="spacer"></div>
                         <div class="row align-items-end buttonsrow">
                             <div class="col-sm-auto">
-                                <button id="feedIt" onClick="gameButton()" data-mdb-button-init data-mdb-ripple-init
+                                <button id="feedIt" data-mdb-button-init data-mdb-ripple-init
                                     class="btn btn-dark btn-sq-responsive" data-type="Feed It">Feed It</button>
                             </div>
                             <div class="col-sm-auto ms-auto">
@@ -55,7 +55,7 @@
 
                             </div>
                             <div class="col-sm-auto ms-auto">
-                                <button id="playTime" onClick="gameButton()" data-mdb-button-init data-mdb-ripple-init
+                                <button id="playTime" data-mdb-button-init data-mdb-ripple-init
                                     class="btn btn-dark btn-sq-responsive" data-type="Play Time">Play Time</button>
                             </div>
                         </div>
@@ -86,8 +86,10 @@
                             quicker it gets!</p>
                     </div>
                     <div class="modal-footer">
+                        <button type="button" class="btn btn-success modal-btn" id="resetHighScore">Reset High Score</button>
                         <button type="button" class="btn btn-success modal-btn" data-bs-dismiss="modal" id="gameStart">Play</button>
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -104,6 +106,7 @@
                         <p>You lose!</p>
                     </div>
                     <div class="modal-footer">
+                        <button type="button" class="btn btn-success modal-btn" id="resetHighScoreLoss">Reset High Score</button>
                         <button type="button" class="btn btn-success modal-btn" data-bs-dismiss="modal" id="gameStartAgain">Play again?</button>
                     </div>
                 </div>
