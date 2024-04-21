@@ -87,7 +87,7 @@ document.getElementById('gameStart').addEventListener('click', function() {
 
 // Function to randomly play one of the audio files, log the instruction that's been called, and check to see if the right button has been pressed
 function playRandomFile() {
-    
+    console.log("Playing random file");
     // Check if the game is over
     if (gameOver) {
         return;
@@ -96,48 +96,30 @@ function playRandomFile() {
     // Start the progress bar that counts down as the time runs out
     progress();
     
-    // Maths to choose a random instruction from the four available options
+    // Choose a random instruction from the four available options
     const audioFiles = ['/assets/audio/brushit.wav', '/assets/audio/petit.wav', '/assets/audio/playtime.wav', '/assets/audio/feedit.wav'];
     let randomIndex;
     do {
-        randomIndex = Math.floor(Math.random() * audioFiles.length);
+        randomIndex = getRandomIndex(audioFiles.length);
     } while (randomIndex === previousIndex);
     previousIndex = randomIndex;
     const randomAudio = audioFiles[randomIndex];
-    
-    // Switch statement to log the instruction that's been called
-    switch(randomAudio) {
-        case '/assets/audio/brushit.wav':
-            instruction = "Brush It";
-            break;
-        case '/assets/audio/petit.wav':
-            instruction = "Pet It";
-            break;
-        case '/assets/audio/playtime.wav':
-            instruction = "Play Time";
-            break;
-        case '/assets/audio/feedit.wav':
-            instruction = "Feed It";
-            break;
-        default:
-            instruction = "";
-    }
+    const instruction = getInstruction(randomAudio);
 
     // Play the audio file
-    const audio = new Audio(randomAudio);
-    audio.play();
+    playAudio(randomAudio);
     
     // Object to map the correct button to the instruction
-    var correctButtons = {
+    const correctButtons = {
         'Brush It': 'brushItIcon',
         'Pet It': 'petItIcon',
         'Play Time': 'playTimeIcon',
         'Feed It': 'feedItIcon'
     };
-    var correctButtonId = correctButtons[instruction];
+    const correctButtonId = correctButtons[instruction];
 
     // Check if the right button has been pressed and either subtract time or end the game
-    setTimeout(function() {
+    setTimeout(() => {
         if (instruction && buttonPress === correctButtonId) {
             score++;
             document.getElementById('score').textContent = score;
@@ -150,6 +132,28 @@ function playRandomFile() {
             setTimeout(playRandomFile, initialTimeout);
         }
     }, initialTimeout);
+}
+
+// Function to get a random index from 0 to max (exclusive)
+function getRandomIndex(max) {
+    return Math.floor(Math.random() * max);
+}
+
+// Function to get the instruction based on the audio file path
+function getInstruction(audioFile) {
+    const instructions = {
+        '/assets/audio/brushit.wav': 'Brush It',
+        '/assets/audio/petit.wav': 'Pet It',
+        '/assets/audio/playtime.wav': 'Play Time',
+        '/assets/audio/feedit.wav': 'Feed It'
+    };
+    return instructions[audioFile] || '';
+}
+
+// Function to play audio
+function playAudio(audioFile) {
+    const audio = new Audio(audioFile);
+    audio.play();
 }
 
 // Modal to bring up on loss of game
