@@ -24,6 +24,11 @@ let previousIndex = -1;
 loadHighScore();
 
 // Function for Brush It button to change the background image and matching event listener to store the button press
+document.getElementById("brushItIcon").addEventListener("click", function() {
+    changeBackgroundToBrushIt();
+    buttonPress = 'brushItIcon';
+});
+
 function changeBackgroundToBrushIt() {
     var gamespace = document.getElementById("gamespace");
     gamespace.style.backgroundImage = "url('/assets/images/brushit_background.png')";
@@ -31,12 +36,13 @@ function changeBackgroundToBrushIt() {
         gamespace.style.backgroundImage = "url('/assets/images/default_background.png')";
     }, 1000);
 }
-document.getElementById("brushIt").addEventListener("click", function() {
-    changeBackgroundToBrushIt();
-    buttonPress = 'brushIt';
-});
 
 // Function for Pet It button to change the background image and matching event listener to store the button press
+document.getElementById("petItIcon").addEventListener("click", function() {
+    changeBackgroundToPetIt();
+    buttonPress = 'petItIcon';
+});
+
 function changeBackgroundToPetIt() {
     var gamespace = document.getElementById("gamespace");
     gamespace.style.backgroundImage = "url('/assets/images/petit_background.png')";
@@ -44,12 +50,14 @@ function changeBackgroundToPetIt() {
         gamespace.style.backgroundImage = "url('/assets/images/default_background.png')";
     }, 1000);
 }
-document.getElementById("petIt").addEventListener("click", function() {
-    changeBackgroundToPetIt();
-    buttonPress = 'petIt';
-});
+
 
 // Function for Feed It button to change the background image and matching event listener to store the button press
+document.getElementById("feedItIcon").addEventListener("click", function() {
+    changeBackgroundToFeedIt();
+    buttonPress = 'feedItIcon';
+});
+
 function changeBackgroundToFeedIt() {
     var gamespace = document.getElementById("gamespace");
     gamespace.style.backgroundImage = "url('/assets/images/feedit_background.png')";
@@ -57,12 +65,13 @@ function changeBackgroundToFeedIt() {
         gamespace.style.backgroundImage = "url('/assets/images/default_background.png')";
     }, 1000);
 }
-document.getElementById("feedIt").addEventListener("click", function() {
-    changeBackgroundToFeedIt();
-    buttonPress = 'feedIt';
-});
 
 // Function for Play Time button to change the background image and matching event listener to store the button press
+document.getElementById("playTimeIcon").addEventListener("click", function() {
+    changeBackgroundToPlayTime();
+    buttonPress = 'playTimeIcon';
+});
+
 function changeBackgroundToPlayTime() {
     var gamespace = document.getElementById("gamespace");
     gamespace.style.backgroundImage = "url('/assets/images/playtime_background.png')";
@@ -70,10 +79,6 @@ function changeBackgroundToPlayTime() {
         gamespace.style.backgroundImage = "url('/assets/images/default_background.png')";
     }, 1000);
 }
-document.getElementById("playTime").addEventListener("click", function() {
-    changeBackgroundToPlayTime();
-    buttonPress = 'playTime';
-});
 
 // Event listener to start the game 1000ms after the play button is clicked
 document.getElementById('gameStart').addEventListener('click', function() {
@@ -124,14 +129,14 @@ function playRandomFile() {
     
     // Object to map the correct button to the instruction
     var correctButtons = {
-        'Brush It': 'brushIt',
-        'Pet It': 'petIt',
-        'Play Time': 'playTime',
-        'Feed It': 'feedIt'
+        'Brush It': 'brushItIcon',
+        'Pet It': 'petItIcon',
+        'Play Time': 'playTimeIcon',
+        'Feed It': 'feedItIcon'
     };
     var correctButtonId = correctButtons[instruction];
 
-    // Timeout to check if the right button has been pressed
+    // Check if the right button has been pressed and either subtract time or end the game
     setTimeout(function() {
         if (instruction && buttonPress === correctButtonId) {
             score++;
