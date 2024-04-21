@@ -87,6 +87,9 @@ function playRandomFile() {
     if (gameOver) {
         return;
     }
+
+    // Start the progress bar that counts down as the time runs out
+    progress();
     
     // Maths to choose a random instruction from the four available options
     const audioFiles = ['/assets/audio/brushit.wav', '/assets/audio/petit.wav', '/assets/audio/playtime.wav', '/assets/audio/feedit.wav'];
@@ -195,3 +198,23 @@ function resetGame() {
     document.getElementById('score').textContent = score;
 };
 
+// Progress Bar that counts down as the time runs out
+var i = 0;
+function progress() {
+  if (i == 0) {
+    i = 1;
+    var elem = document.getElementById("myBar");
+    var width = 100;
+    var decreaseAmount = (100 / initialTimeout) * 10;
+    var id = setInterval(frame, 10);
+    function frame() {
+      if (width <= 0) {
+        clearInterval(id);
+        i = 0;
+      } else {
+        width -= decreaseAmount;
+        elem.style.width = width + "%";
+      }
+    }
+  }
+}
