@@ -1,30 +1,48 @@
 // GLOBAL VARIABLES
-
-// Score variable to keep track of the score
+/** 
+ * Score variable to keep track of the score
+ */
 let score = 0;
 
-// Instruction variable to keep track of the given instruction
+/** 
+ * Instruction variable to keep track of the given instruction
+ */
 let instruction;
 
-// Variable that will store which button has been pressed
+/** 
+ * Variable that will store which button has been pressed
+ */
 let buttonPress;
 
-// Variable to set the initial timeout duration
+/** 
+ * Variable to set the initial timeout duration
+ */
 let initialTimeout = 2000;
 
-// Variable to check if the game is over
+/** 
+ * Variable to check if the game is over
+ */
 let gameOver = false;
 
-// Variable to store the previous index for the first turn
+/** 
+ * Variable to store the previous index for the first turn
+ */
 let previousIndex = -1;
 
-// Variable to store the index for progress bar
+/** 
+ * Variable to store the index for the progress bar
+ */
 let i = 0;
 
-// Variable to store initial background image
+/** 
+ * Variable to store initial background image
+ */ 
 let gamespace = document.getElementById("gamespace");
 
 // EVENT LISTENERS
+/**
+ * Initializes the game by adding event listeners to the buttons
+ */
 function initializeGame() {
     document.getElementById("petItIcon").addEventListener("click", onPetItIconClick);
     document.getElementById("feedItIcon").addEventListener("click", onFeedItIconClick);
@@ -36,41 +54,55 @@ function initializeGame() {
     document.getElementById('resetHighScoreLoss').addEventListener('click', highScoreReset);
 }
 
-// Modal to bring up instructions on page load
+/**
+ * Modal to bring up instructions on page load
+ */
 function loadModal() {
     $('#instructions').modal('show');
 }
 
-// Function to start the game 1000ms after the play button is clicked
+/**
+ * Function to start the game 1000ms after the play button is clicked
+ */
 function startGame() {
     setTimeout(playRandomFile, 1000);
 };
 
-// Function to handle Pet It button click
+/**
+ * Function to handle Pet It button click
+ */
 function onPetItIconClick() {
     buttonPress = 'petItIcon';
     changeBackgroundToPetIt();
 };
 
-// Function to handle Feed It button click
+/**
+ * Function to handle Feed It button click
+ */
 function onFeedItIconClick() {
     buttonPress = 'feedItIcon';
     changeBackgroundToFeedIt();
 };
 
-// Function to handle Brush It button click
+/**
+ * Function to handle Brush It button click
+ */
 function onBrushItIconClick() {
     buttonPress = 'brushItIcon';
     changeBackgroundToBrushIt();
 };
 
-// Function to handle Play Time button click
+/**
+ * Function to handle Play Time button click
+ */
 function onPlayTimeIconClick() {
     buttonPress = 'playTimeIcon';
     changeBackgroundToPlayTime();
 };
 
-// Function to change the background image to the Pet It background and back again
+/**
+ * Function to change the background image to the Pet It background and back again
+ */
 function changeBackgroundToPetIt() {
     gamespace.style.backgroundImage = "url('assets/images/petit_background.png')";
     setTimeout(function () {
@@ -78,7 +110,9 @@ function changeBackgroundToPetIt() {
     }, 1000);
 }
 
-// Function to change the background image to the Feed It background and back again
+/**
+ * Function to change the background image to the Feed It background and back again
+ */
 function changeBackgroundToFeedIt() {
     gamespace.style.backgroundImage = "url('assets/images/feedit_background.png')";
     setTimeout(function () {
@@ -86,7 +120,10 @@ function changeBackgroundToFeedIt() {
     }, 1000);
 }
 
-// Function to change the background image to the Brush It background and back again
+/**
+ * Function to change the background image to the Brush It background and back again
+ */
+
 function changeBackgroundToBrushIt() {
     gamespace.style.backgroundImage = "url('assets/images/brushit_background.png')";
     setTimeout(function () {
@@ -94,7 +131,9 @@ function changeBackgroundToBrushIt() {
     }, 1000);
 }
 
-// Function to change the background image to the Play Time background and back again
+/**
+ * Function to change the background image to the Play Time background and back again
+ */
 function changeBackgroundToPlayTime() {
     gamespace.style.backgroundImage = "url('assets/images/playtime_background.png')";
     setTimeout(function () {
@@ -102,10 +141,17 @@ function changeBackgroundToPlayTime() {
     }, 1000);
 }
 
-// Function to load the high score from local storage
+/**
+ * Function to load the high score from local storage
+ */
 loadHighScore();
 
-// Function to randomly play one of the audio files, check which instruction has been called, reduce the timer, and check to see if the right button has been pressed
+/**
+ * Function to randomly play one of the audio files;
+ * Also checks which instruction has been called;
+ * Reduces the timer;
+ * Checks to see if the right button has been pressed.
+ */
 function playRandomFile() {
     i = 0;
     // Check if the game is over
@@ -157,12 +203,16 @@ function playRandomFile() {
     }, initialTimeout);
 }
 
-// Function to get a random file from the audio files
+/**
+ * Function to get a random file from the audio files
+ */
 function getRandomIndex(max) {
     return Math.floor(Math.random() * max);
 }
 
-// Function to get the instruction based on the audio file path
+/**
+ * Function to get the correct instruction based on which audio file was played
+ */
 function getInstruction(audioFile) {
     const INSTRUCTIONS = {
         'assets/audio/brushit.wav': 'Brush It',
@@ -173,19 +223,25 @@ function getInstruction(audioFile) {
     return INSTRUCTIONS[audioFile] || '';
 }
 
-// Function to play audio
+/**
+ * Function to play the randomly selected audio
+ */
 function playAudio(audioFile) {
     const AUDIO = new Audio(audioFile);
     AUDIO.play();
 }
 
-// Modal to bring up on loss of game
+/**
+ * Modal to bring up on loss of game
+ */
 function loadLossModal() {
     $('#loss').modal('show');
     updateHighScore();
 }
 
-// Function to update the high score using local storage
+/**
+ * Function to update the high score using local storage
+ */
 function updateHighScore() {
     if (score > localStorage.getItem('highScore')) {
         localStorage.setItem('highScore', score);
@@ -193,7 +249,9 @@ function updateHighScore() {
     document.getElementById('highScore').textContent = localStorage.getItem('highScore');
 }
 
-// Function to load the high score from local storage
+/**
+ * Function to load the high score from local storage
+ */
 function loadHighScore() {
     if (!localStorage.getItem('highScore')) {
         localStorage.setItem('highScore', 0);
@@ -201,13 +259,17 @@ function loadHighScore() {
     document.getElementById('highScore').textContent = localStorage.getItem('highScore');
 }
 
-// Function to reset the high score
+/**
+ * Function to reset the high score
+ */
 function highScoreReset() {
     localStorage.setItem('highScore', 0);
     document.getElementById('highScore').textContent = localStorage.getItem('highScore');
 };
 
-// Function to reset the game
+/**
+ * Function to reset the game
+ */
 function resetGame() {
     score = 0;
     gameOver = false;
@@ -217,7 +279,9 @@ function resetGame() {
     startGame();
 };
 
-// Progress Bar that counts down as the time runs out
+/**
+ * Progress Bar that counts down as the time runs out
+ */
 function progress() {
     if (i == 0) {
         i = 1;
