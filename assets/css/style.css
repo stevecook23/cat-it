@@ -205,7 +205,6 @@ p {
 }
 
 /* Screen orientation CSS */
-
 @media (max-width:1000px) and (orientation: landscape) {
     .title {
         display: none;
