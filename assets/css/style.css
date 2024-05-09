@@ -51,6 +51,7 @@ p {
 
 #gamespace {
     background-image: url('../images/default_background.png');
+    background-color: #ff7c24;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

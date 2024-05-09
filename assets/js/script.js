@@ -274,6 +274,14 @@ function resetGame() {
     startGame();
 }
 
+/** 
+ * Updates the score on the modal when the game is lost
+ */
+$('#loss').on('show.bs.modal', function () {
+    document.getElementById("gamescore").innerHTML = "Your score: " + score;
+    document.getElementById("gamehighscore").innerHTML = "High score: " + localStorage.getItem('highScore');
+});
+
 /**
  * Progress Bar that counts down as the time runs out
  */
