@@ -25,18 +25,17 @@ p {
 }
 
 /* Modal */
-.instructions {
-    border-radius: 5px;
-    box-shadow: 0px 0px 25px #666;
-}
-
 .modal {
     color: #333;
     text-align: left;
 }
 
 .modal-body {
-    font-size: 20px;
+    font-size: 18px;
+}
+
+.modal-body p {
+    margin: 0;
 }
 
 .modal-footer {
@@ -45,9 +44,8 @@ p {
 }
 
 .header {
-    font-size: 26px;
+    font-size: 24px;
 }
-
 
 /* Game Interface */
 
@@ -84,7 +82,6 @@ p {
 #gamespace-row {
     justify-content: center;
 }
-
 
 .score {
     font-size: 20px;
@@ -169,7 +166,6 @@ p {
     }
 }
 
-
 .btn-lg {
     padding: 10px 10px;
 }
@@ -207,7 +203,6 @@ p {
     height: 10px;
     background-color: green;
 }
-
 
 /* Screen orientation CSS */
 
