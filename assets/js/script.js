@@ -5,11 +5,6 @@
 let score = 0;
 
 /** 
- * Instruction variable to keep track of the given instruction
- */
-let instruction;
-
-/** 
  * Variable that will store which button has been pressed
  */
 let buttonPress;
@@ -66,7 +61,7 @@ function loadModal() {
  */
 function startGame() {
     setTimeout(playRandomFile, 1000);
-};
+}
 
 /**
  * Function to handle Pet It button click
@@ -74,7 +69,7 @@ function startGame() {
 function onPetItIconClick() {
     buttonPress = 'petItIcon';
     changeBackgroundToPetIt();
-};
+}
 
 /**
  * Function to handle Feed It button click
@@ -82,7 +77,7 @@ function onPetItIconClick() {
 function onFeedItIconClick() {
     buttonPress = 'feedItIcon';
     changeBackgroundToFeedIt();
-};
+}
 
 /**
  * Function to handle Brush It button click
@@ -90,7 +85,7 @@ function onFeedItIconClick() {
 function onBrushItIconClick() {
     buttonPress = 'brushItIcon';
     changeBackgroundToBrushIt();
-};
+}
 
 /**
  * Function to handle Play Time button click
@@ -98,7 +93,7 @@ function onBrushItIconClick() {
 function onPlayTimeIconClick() {
     buttonPress = 'playTimeIcon';
     changeBackgroundToPlayTime();
-};
+}
 
 /**
  * Function to change the background image to the Pet It background and back again
@@ -265,7 +260,7 @@ function loadHighScore() {
 function highScoreReset() {
     localStorage.setItem('highScore', 0);
     document.getElementById('highScore').textContent = localStorage.getItem('highScore');
-};
+}
 
 /**
  * Function to reset the game
@@ -277,7 +272,7 @@ function resetGame() {
     previousIndex = -1;
     document.getElementById('score').textContent = score;
     startGame();
-};
+}
 
 /**
  * Progress Bar that counts down as the time runs out
@@ -288,8 +283,7 @@ function progress() {
         var elem = document.getElementById("myBar");
         var width = 100;
         var decreaseAmount = (100 / initialTimeout) * 10;
-        var id = setInterval(frame, 10);
-        function frame() {
+        var id = setInterval(function frame() {
             if (width <= 0) {
                 clearInterval(id);
                 i = 0;
@@ -297,7 +291,7 @@ function progress() {
                 width -= decreaseAmount;
                 elem.style.width = width + "%";
             }
-        }
+        }, 10);      
     }
 }
 
