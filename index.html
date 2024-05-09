@@ -66,16 +66,14 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title, ms-auto">Cat-It!</h1>
-                    <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="modal"></button>
-                </div>
+                    </div>
                 <div class="modal-body">
                     <p>Click the correct icon before the cat loses interest! But be warned... the more you play, the
                         quicker it gets!</p>
                     <p>On mobile devices, rotate for a better experience!</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success modal-btn" id="resetHighScore">Reset High
-                        Score</button>
+                    <button type="button" class="btn btn-success modal-btn loss-jpg" id="resetHighScore" onclick="alert('High Score Reset!')">Reset High Score</button>
                     <button type="button" class="btn btn-success modal-btn" data-bs-dismiss="modal"
                         id="gameStart">Play</button>
                 </div>
@@ -90,13 +88,13 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title, ms-auto">Cat-It!</h1>
-                    <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="modal"></button>
+                    
                 </div>
                 <div class="modal-body">
                     <p>You lose!</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success modal-btn" id="resetHighScoreLoss">Reset High
+                    <button type="button" class="btn btn-success modal-btn loss-jpg" id="resetHighScoreLoss" onclick="alert('High Score Reset!')">Reset High
                         Score</button>
                     <button type="button" class="btn btn-success modal-btn" data-bs-dismiss="modal"
                         id="gameStartAgain">Play again?</button>

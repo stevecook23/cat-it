@@ -1,7 +1,5 @@
-// Modal to bring up instructions on page load
-function loadModal() {
-    $('#instructions').modal('show');
-}
+// GLOBAL VARIABLES
+
 // Score variable to keep track of the score
 let score = 0;
 
@@ -20,12 +18,22 @@ let gameOver = false;
 // Variable to store the previous index for the first turn
 let previousIndex = -1;
 
+// Variable to store the index for progress bar
+let i = 0;
+
+// EVENT LISTENERS
+
+// Modal to bring up instructions on page load
+function loadModal() {
+    $('#instructions').modal('show');
+}
+
 // Function to load the high score from local storage
 loadHighScore();
 
 // Function to change the background image to the Pet It background
 function changeBackgroundToPetIt() {
-    var gamespace = document.getElementById("gamespace");
+    let gamespace = document.getElementById("gamespace");
     gamespace.style.backgroundImage = "url('assets/images/petit_background.png')";
     setTimeout(function () {
         gamespace.style.backgroundImage = "url('assets/images/default_background.png')";
@@ -41,7 +49,7 @@ document.getElementById("petItIcon").addEventListener("click", function () {
 
 // Function to change the background image to the Feed It background
 function changeBackgroundToFeedIt() {
-    var gamespace = document.getElementById("gamespace");
+    let gamespace = document.getElementById("gamespace");
     gamespace.style.backgroundImage = "url('assets/images/feedit_background.png')";
     setTimeout(function () {
         gamespace.style.backgroundImage = "url('assets/images/default_background.png')";
@@ -57,7 +65,7 @@ document.getElementById("feedItIcon").addEventListener("click", function () {
 
 // Function to change the background image to the Brush It background
 function changeBackgroundToBrushIt() {
-    var gamespace = document.getElementById("gamespace");
+    let gamespace = document.getElementById("gamespace");
     gamespace.style.backgroundImage = "url('assets/images/brushit_background.png')";
     setTimeout(function () {
         gamespace.style.backgroundImage = "url('assets/images/default_background.png')";
@@ -73,7 +81,7 @@ document.getElementById("brushItIcon").addEventListener("click", function () {
 
 // Function to change the background image to the Play Time background
 function changeBackgroundToPlayTime() {
-    var gamespace = document.getElementById("gamespace");
+    let gamespace = document.getElementById("gamespace");
     gamespace.style.backgroundImage = "url('assets/images/playtime_background.png')";
     setTimeout(function () {
         gamespace.style.backgroundImage = "url('assets/images/default_background.png')";
@@ -104,39 +112,39 @@ function playRandomFile() {
     progress();
 
     // Set the start time for the round
-    const startTime = Date.now();
+    const START_TIME = Date.now();
 
     // Choose a random instruction from the four available options
-    const audioFiles = ['assets/audio/brushit.wav', 'assets/audio/petit.wav', 'assets/audio/playtime.wav', 'assets/audio/feedit.wav'];
+    const AUDIO_FILES = ['assets/audio/brushit.wav', 'assets/audio/petit.wav', 'assets/audio/playtime.wav', 'assets/audio/feedit.wav'];
     let randomIndex;
     do {
-        randomIndex = getRandomIndex(audioFiles.length);
+        randomIndex = getRandomIndex(AUDIO_FILES.length);
     } while (randomIndex === previousIndex);
     previousIndex = randomIndex;
-    const randomAudio = audioFiles[randomIndex];
-    const instruction = getInstruction(randomAudio);
+    const RANDOM_AUDIO = AUDIO_FILES[randomIndex];
+    const INSTRUCTION = getInstruction(RANDOM_AUDIO);
 
     // Play the audio file
-    playAudio(randomAudio);
+    playAudio(RANDOM_AUDIO);
 
     // Object to map the correct button to the instruction
-    const correctButtons = {
+    const CORRECT_BUTTONS = {
         'Brush It': 'brushItIcon',
         'Pet It': 'petItIcon',
         'Play Time': 'playTimeIcon',
         'Feed It': 'feedItIcon'
     };
-    const correctButtonId = correctButtons[instruction];
+    const CORRECT_BUTTON_ID = CORRECT_BUTTONS[INSTRUCTION];
 
     // Check if the right button has been pressed and either subtract time or end the game
     setTimeout(() => {
-        if (instruction && buttonPress === correctButtonId) {
+        if (INSTRUCTION && buttonPress === CORRECT_BUTTON_ID) {
             score++;
             document.getElementById('score').textContent = score;
             initialTimeout -= 10;
-            const remainingTime = initialTimeout - (Date.now() - startTime);
+            const REMAINING_TIME = initialTimeout - (Date.now() - START_TIME);
 
-            setTimeout(playRandomFile, remainingTime);
+            setTimeout(playRandomFile, REMAINING_TIME);
         } else {
             gameOver = true;
             loadLossModal();
@@ -151,19 +159,19 @@ function getRandomIndex(max) {
 
 // Function to get the instruction based on the audio file path
 function getInstruction(audioFile) {
-    const instructions = {
+    const INSTRUCTIONS = {
         'assets/audio/brushit.wav': 'Brush It',
         'assets/audio/petit.wav': 'Pet It',
         'assets/audio/playtime.wav': 'Play Time',
         'assets/audio/feedit.wav': 'Feed It'
     };
-    return instructions[audioFile] || '';
+    return INSTRUCTIONS[audioFile] || '';
 }
 
 // Function to play audio
 function playAudio(audioFile) {
-    const audio = new Audio(audioFile);
-    audio.play();
+    const AUDIO = new Audio(audioFile);
+    AUDIO.play();
 }
 
 // Modal to bring up on loss of game
@@ -218,7 +226,6 @@ function resetGame() {
 };
 
 // Progress Bar that counts down as the time runs out
-var i = 0;
 function progress() {
     if (i == 0) {
         i = 1;
