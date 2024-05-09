@@ -26,9 +26,9 @@ loadHighScore();
 // Function to change the background image to the Pet It background
 function changeBackgroundToPetIt() {
     var gamespace = document.getElementById("gamespace");
-    gamespace.style.backgroundImage = "url('./assets/images/petit_background.png')";
+    gamespace.style.backgroundImage = "url('assets/images/petit_background.png')";
     setTimeout(function () {
-        gamespace.style.backgroundImage = "url('./assets/images/default_background.png')";
+        gamespace.style.backgroundImage = "url('assets/images/default_background.png')";
     }, 1000);
 }
 
@@ -42,9 +42,9 @@ document.getElementById("petItIcon").addEventListener("click", function () {
 // Function to change the background image to the Feed It background
 function changeBackgroundToFeedIt() {
     var gamespace = document.getElementById("gamespace");
-    gamespace.style.backgroundImage = "url('./assets/images/feedit_background.png')";
+    gamespace.style.backgroundImage = "url('assets/images/feedit_background.png')";
     setTimeout(function () {
-        gamespace.style.backgroundImage = "url('./assets/images/default_background.png')";
+        gamespace.style.backgroundImage = "url('assets/images/default_background.png')";
     }, 1000);
 }
 
@@ -58,9 +58,9 @@ document.getElementById("feedItIcon").addEventListener("click", function () {
 // Function to change the background image to the Brush It background
 function changeBackgroundToBrushIt() {
     var gamespace = document.getElementById("gamespace");
-    gamespace.style.backgroundImage = "url('./assets/images/brushit_background.png')";
+    gamespace.style.backgroundImage = "url('assets/images/brushit_background.png')";
     setTimeout(function () {
-        gamespace.style.backgroundImage = "url('./assets/images/default_background.png')";
+        gamespace.style.backgroundImage = "url('assets/images/default_background.png')";
     }, 1000);
 }
 
@@ -74,9 +74,9 @@ document.getElementById("brushItIcon").addEventListener("click", function () {
 // Function to change the background image to the Play Time background
 function changeBackgroundToPlayTime() {
     var gamespace = document.getElementById("gamespace");
-    gamespace.style.backgroundImage = "url('./assets/images/playtime_background.png')";
+    gamespace.style.backgroundImage = "url('assets/images/playtime_background.png')";
     setTimeout(function () {
-        gamespace.style.backgroundImage = "url('./assets/images/default_background.png')";
+        gamespace.style.backgroundImage = "url('assets/images/default_background.png')";
     }, 1000);
 }
 
@@ -107,7 +107,7 @@ function playRandomFile() {
     const startTime = Date.now();
 
     // Choose a random instruction from the four available options
-    const audioFiles = ['./assets/audio/brushit.wav', './assets/audio/petit.wav', './assets/audio/playtime.wav', './assets/audio/feedit.wav'];
+    const audioFiles = ['assets/audio/brushit.wav', 'assets/audio/petit.wav', 'assets/audio/playtime.wav', 'assets/audio/feedit.wav'];
     let randomIndex;
     do {
         randomIndex = getRandomIndex(audioFiles.length);
