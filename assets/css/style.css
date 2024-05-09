@@ -50,7 +50,7 @@ p {
 /* Game Interface */
 
 #gamespace {
-    background-image: url('assets/images/default_background.png');
+    background-image: url('../images/default_background.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
