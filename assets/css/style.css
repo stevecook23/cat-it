@@ -64,6 +64,10 @@ h1, h2, h3, h4, h5, h6, p {
     border-color: #F75252;
 }
 
+#gamespace img:hover {
+    filter: brightness(80%);
+}
+
 #scorespace {
     position: absolute;
     top: 10px;
