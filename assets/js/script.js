@@ -152,10 +152,10 @@ function getRandomIndex(max) {
 // Function to get the instruction based on the audio file path
 function getInstruction(audioFile) {
     const instructions = {
-        './assets/audio/brushit.wav': 'Brush It',
-        './assets/audio/petit.wav': 'Pet It',
-        './assets/audio/playtime.wav': 'Play Time',
-        './assets/audio/feedit.wav': 'Feed It'
+        'assets/audio/brushit.wav': 'Brush It',
+        'assets/audio/petit.wav': 'Pet It',
+        'assets/audio/playtime.wav': 'Play Time',
+        'assets/audio/feedit.wav': 'Feed It'
     };
     return instructions[audioFile] || '';
 }
