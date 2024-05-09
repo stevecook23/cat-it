@@ -21,84 +21,89 @@ let previousIndex = -1;
 // Variable to store the index for progress bar
 let i = 0;
 
+// Variable to store initial background image
+let gamespace = document.getElementById("gamespace");
+
 // EVENT LISTENERS
+function initializeGame() {
+    document.getElementById("petItIcon").addEventListener("click", onPetItIconClick);
+    document.getElementById("feedItIcon").addEventListener("click", onFeedItIconClick);
+    document.getElementById("brushItIcon").addEventListener("click", onBrushItIconClick);
+    document.getElementById("playTimeIcon").addEventListener("click", onPlayTimeIconClick);
+    document.getElementById('gameStart').addEventListener('click', startGame);
+    document.getElementById('gameStartAgain').addEventListener('click', resetGame);
+    document.getElementById('resetHighScore').addEventListener('click', highScoreReset);
+    document.getElementById('resetHighScoreLoss').addEventListener('click', highScoreReset);
+}
 
 // Modal to bring up instructions on page load
 function loadModal() {
     $('#instructions').modal('show');
 }
 
-// Function to load the high score from local storage
-loadHighScore();
+// Function to start the game 1000ms after the play button is clicked
+function startGame() {
+    setTimeout(playRandomFile, 1000);
+};
 
-// Function to change the background image to the Pet It background
+// Function to handle Pet It button click
+function onPetItIconClick() {
+    buttonPress = 'petItIcon';
+    changeBackgroundToPetIt();
+};
+
+// Function to handle Feed It button click
+function onFeedItIconClick() {
+    buttonPress = 'feedItIcon';
+    changeBackgroundToFeedIt();
+};
+
+// Function to handle Brush It button click
+function onBrushItIconClick() {
+    buttonPress = 'brushItIcon';
+    changeBackgroundToBrushIt();
+};
+
+// Function to handle Play Time button click
+function onPlayTimeIconClick() {
+    buttonPress = 'playTimeIcon';
+    changeBackgroundToPlayTime();
+};
+
+// Function to change the background image to the Pet It background and back again
 function changeBackgroundToPetIt() {
-    let gamespace = document.getElementById("gamespace");
     gamespace.style.backgroundImage = "url('assets/images/petit_background.png')";
     setTimeout(function () {
         gamespace.style.backgroundImage = "url('assets/images/default_background.png')";
     }, 1000);
 }
 
-// Event listener for the petItIcon button
-document.getElementById("petItIcon").addEventListener("click", function () {
-    buttonPress = 'petItIcon';
-    console.log("Button Pressed: " + buttonPress);
-    changeBackgroundToPetIt();
-});
-
-// Function to change the background image to the Feed It background
+// Function to change the background image to the Feed It background and back again
 function changeBackgroundToFeedIt() {
-    let gamespace = document.getElementById("gamespace");
     gamespace.style.backgroundImage = "url('assets/images/feedit_background.png')";
     setTimeout(function () {
         gamespace.style.backgroundImage = "url('assets/images/default_background.png')";
     }, 1000);
 }
 
-// Function for Feed It button to change the background image and store the button press
-document.getElementById("feedItIcon").addEventListener("click", function () {
-    buttonPress = 'feedItIcon';
-    console.log("Button Pressed: " + buttonPress);
-    changeBackgroundToFeedIt();
-});
-
-// Function to change the background image to the Brush It background
+// Function to change the background image to the Brush It background and back again
 function changeBackgroundToBrushIt() {
-    let gamespace = document.getElementById("gamespace");
     gamespace.style.backgroundImage = "url('assets/images/brushit_background.png')";
     setTimeout(function () {
         gamespace.style.backgroundImage = "url('assets/images/default_background.png')";
     }, 1000);
 }
 
-// Function for Brush It button to change the background image and store the button press
-document.getElementById("brushItIcon").addEventListener("click", function () {
-    buttonPress = 'brushItIcon';
-    console.log("Button Pressed: " + buttonPress);
-    changeBackgroundToBrushIt();
-});
-
-// Function to change the background image to the Play Time background
+// Function to change the background image to the Play Time background and back again
 function changeBackgroundToPlayTime() {
-    let gamespace = document.getElementById("gamespace");
     gamespace.style.backgroundImage = "url('assets/images/playtime_background.png')";
     setTimeout(function () {
         gamespace.style.backgroundImage = "url('assets/images/default_background.png')";
     }, 1000);
 }
 
-// Function for Play Time button to change the background image and store the button press
-document.getElementById("playTimeIcon").addEventListener("click", function () {
-    buttonPress = 'playTimeIcon';
-    console.log("Button Pressed: " + buttonPress);
-    changeBackgroundToPlayTime();
-});
-
-// Event listener to start the game 1000ms after the play button is clicked
-document.getElementById('gameStart').addEventListener('click', function () {
-    setTimeout(playRandomFile, 1000);
-});
+// Function to load the high score from local storage
+loadHighScore();
 
 // Function to randomly play one of the audio files, check which instruction has been called, reduce the timer, and check to see if the right button has been pressed
 function playRandomFile() {
@@ -196,25 +201,11 @@ function loadHighScore() {
     document.getElementById('highScore').textContent = localStorage.getItem('highScore');
 }
 
-// Function to listen for the Reset High Score button being clicked off Instructions modal, and then resetting the high score
-document.getElementById('resetHighScore').addEventListener('click', function () {
-    console.log("Reset High Score button clicked");
+// Function to reset the high score
+function highScoreReset() {
     localStorage.setItem('highScore', 0);
     document.getElementById('highScore').textContent = localStorage.getItem('highScore');
-});
-
-// Function to listen for the Reset High Score button being clicked off Loss modal, and then resetting the high score
-document.getElementById('resetHighScoreLoss').addEventListener('click', function () {
-    console.log("Reset High Score button clicked");
-    localStorage.setItem('highScore', 0);
-    document.getElementById('highScore').textContent = localStorage.getItem('highScore');
-});
-
-// Event listener for when the 'Play Again' button is clicked
-document.getElementById('gameStartAgain').addEventListener('click', function () {
-    resetGame();
-    setTimeout(playRandomFile, 1000);
-});
+};
 
 // Function to reset the game
 function resetGame() {
@@ -223,6 +214,7 @@ function resetGame() {
     initialTimeout = 2000;
     previousIndex = -1;
     document.getElementById('score').textContent = score;
+    startGame();
 };
 
 // Progress Bar that counts down as the time runs out
@@ -244,3 +236,5 @@ function progress() {
         }
     }
 }
+
+document.addEventListener("DOMContentLoaded", initializeGame);
