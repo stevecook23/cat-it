@@ -93,13 +93,22 @@ The game images presented here are not final, and are indicative of what a user 
 ## Code validation
 ### <a href="https://validator.w3.org/" target="_blank">W3C</a>
 
++ <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fstevecook23.github.io%2Fcat-it%2F" target="_blank">Game page validation</a>
+
+![W3C Validation](readme_docs/testcases/html_results.png "W3c Validation")
+![Jigsaw Validation](readme_docs/testcases/css_results.png "Jigsaw Validation")
+
 ### Lighthouse Report:
 
-### 
+![Jigsaw Validation](readme_docs/testcases/jigsaw_results.png "Jigsaw Validation") 
+
+### <a href="https://jshint.com/" target="_blank">JSHint</a>
+
+![JSHint Validation](readme_docs/testcases/jshint_results.png "JSHint Validation") 
 
 ## Supported Screens and Browsers
 + This website works in any browser and at any screen size, from desktop down to smart phones.
-+ It has been developed and tested in Chrome, and smaller screen sizes have been simulated with Chrome's Inspect tool. Sample screens of all currently-available smart phones have been tested.
++ It has been developed and tested in Chrome, and smaller screen sizes have been simulated with Chrome's Inspect tool. Sample screens of all currently-available smart phones have been tested through Chrome's Inspect tool. It has also been tested natively on a Pixel 7a device.
 
 ## Deployment
 This website has been deployed on Github Pages. It was developed locally, using a clone of the repository on Github, available at Github.
@@ -134,11 +143,14 @@ Text is written in its entirety by Steve Cook
 ### Media
 #### Readme Images
 Some images used in this Readme have been sourced through UnSplash, a Figma Plugin, and are used by permission. They can be found at the following addresses:
-+ 
++ <a href="https://unsplash.com/photos/gray-kitten-sitting-on-floor-fEK4jvgnApg" target="_blank">Stock image used for Default Wireframe</a>
++ <a href="https://unsplash.com/photos/cute-brown-cat-looking-at-appetizing-homemade-pancakes-on-plate-with-fresh-berries-jam-honey-and-sourcream-on-table-pl2lEC0d58I" target="_blank">Stock image used for Stroke It Wireframe (later renamed to Pet It)</a>
++ <a href="https://unsplash.com/photos/selective-focus-photography-of-lying-russian-blue-cat-N8lcQwgx4so" target="_blank">Stock image used for Play Time Wireframe</a>
++ <a href="https://unsplash.com/photos/white-and-brown-short-coated-dog-zE1Ej5Wu4vU" target="_blank">Stock image used for Brush It Wireframe</a>
++ <a href="https://unsplash.com/photos/cute-brown-cat-looking-at-appetizing-homemade-pancakes-on-plate-with-fresh-berries-jam-honey-and-sourcream-on-table-pl2lEC0d58I" target="_blank">Stock image used for Feed It Wireframe</a>
 
 #### Game Images
 Images for this game were made by Susan Cook and used with permission
-
 
 #### Audio
 Audio for this game was recorded from the Pi artificial intelligence assistant.
