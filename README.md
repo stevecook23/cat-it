@@ -115,26 +115,29 @@ This website has been deployed on Github Pages. It was developed locally, using 
 
 To view the deployment on Github Pages:
 
-Navigate to https://stevecook23.github.io/cat-it/
-Alternatively, navigate to https://github.com/stevecook23/cat-it
-Click 'Actions'
-Click on the most recent workflow run
-Click the link under 'Deploy'
++ Navigate to https://stevecook23.github.io/cat-it/
++ Alternatively, navigate to https://github.com/stevecook23/cat-it
++ Click 'Actions'
++ Click on the most recent workflow run
++ Click the link under 'Deploy'
+
 To clone the repository from Github in your editor of choice:
 
-First, open your terminal.
-Change the current working directory to the location where you want the cloned directory.
-Input: ```bash
-Input: cd path/to/your/directory (ensure you change the directory to whatever you want to clone the repository)
-Clone the repository by running: git clone https://github.com/stevecook23/cat-it.git
-Change directories into the cloned repository: cd cat-it
-Now you have a copy of the source code and can start to work on it.
-The Visual Studio Code preview extension was used to preview the website. The deployment list is available here. To open this repository on Visual Studio Code:
++ First, open your terminal.
++ Change the current working directory to the location where you want the cloned directory.
++ Input: ```bash
++ Input: cd path/to/your/directory (ensure you change the directory to whatever you want to clone the repository)
++ Clone the repository by running: git clone https://github.com/stevecook23/cat-it.git
++ Change directories into the cloned repository: cd cat-it
 
-Open an integrated terminal from the menu Terminal -> New Terminal
-Clone the repo with the following command: git clone https://github.com/stevecook23/cat-it
-Change your terminal into that new subdirectory: cd cat-it
-Open in Visual Studio Code: code .
+Now you have a copy of the source code and can start to work on it.
+
+The Visual Studio Code preview extension was used to preview the website. To open this repository on Visual Studio Code:
+
++ Open an integrated terminal from the menu Terminal -> New Terminal
++ Clone the repo with the following command: git clone https://github.com/stevecook23/cat-it
++ Change your terminal into that new subdirectory: cd cat-it
++ Open in Visual Studio Code: code .
 
 ## Credits
 ### Text Content
