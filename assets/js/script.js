@@ -182,7 +182,7 @@ function playRandomFile() {
     };
     const CORRECT_BUTTON_ID = CORRECT_BUTTONS[INSTRUCTION];
 
-    // Check if the right button has been pressed and either subtract time or end the game
+    // Check if the correct button has been pressed and either subtract time or end the game
     setTimeout(() => {
         if (INSTRUCTION && buttonPress === CORRECT_BUTTON_ID) {
             score++;
@@ -271,6 +271,7 @@ function resetGame() {
     initialTimeout = 2000;
     previousIndex = -1;
     document.getElementById('score').textContent = score;
+    buttonPress = '';
     startGame();
 }
 
@@ -284,22 +285,26 @@ $('#loss').on('show.bs.modal', function () {
 
 /**
  * Progress Bar that counts down as the time runs out
+ * Variables not added to the top of this document for clarity
  */
 function progress() {
     if (i == 0) {
         i = 1;
         var elem = document.getElementById("myBar");
         var width = 100;
-        var decreaseAmount = (100 / initialTimeout) * 10;
-        var id = setInterval(function frame() {
+        var decreaseAmount = 100 / (initialTimeout / 16.67);
+
+        function updateProgress() {
             if (width <= 0) {
-                clearInterval(id);
                 i = 0;
             } else {
                 width -= decreaseAmount;
                 elem.style.width = width + "%";
+                requestAnimationFrame(updateProgress);
             }
-        }, 10);      
+        }
+
+        requestAnimationFrame(updateProgress);
     }
 }
 

@@ -89,6 +89,8 @@ The game images presented here are not final, and are indicative of what a user 
 ### Bugs discovered
 + Properly aligning the square buttons in the four corners of the game space was probably among the hardest parts of designing this, as I could align them in other places fairly easily. Ultimately I solved this with CSS, but I have since broken this alignment at least once while trying to tweak and make more efficient my CSS.
 + Aligning and setting the size on the progress bar was also tricky. Having it reduce from 100% full to 0% is a default behaviour, but the time it needs to progress this in changes with every round, reducing by 10ms. Ultimately, having it take the variable from the internal timer to the game every round and effectively reload has solved the problem.
++ However, making the Progress Bar reduce by the correct amount on the first round, while also decreasing in a smooth fashion, was a major blocker for a while. This was solved ultimately by adjusting the refresh rate for the bar so that it correctly calculates the amount it needs to reduce by every time it checks.
++ I encountered a bug very late in development where pressing 'Play again' would sometimes grant the player 1 point without them having pressed any of the four buttons. This was because the variable buttonPress still had the most recent button press logged to it, and there is a 1/4 chance that the last command in the losing game will be the first command in the new game. Adding a null value to buttonPress when the 'Play Again' button is pressed removed this problem.
 
 ## Code validation
 ### <a href="https://validator.w3.org/" target="_blank">W3C</a>
