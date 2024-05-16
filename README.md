@@ -95,8 +95,11 @@ The game images presented here are not final, and are indicative of what a user 
 
 ### Lighthouse Report:
 
+### 
+
 ## Supported Screens and Browsers
-+ 
++ This website works in any browser and at any screen size, from desktop down to smart phones.
++ It has been developed and tested in Chrome, and smaller screen sizes have been simulated with Chrome's Inspect tool. Sample screens of all currently-available smart phones have been tested.
 
 ## Deployment
 This website has been deployed on Github Pages. It was developed locally, using a clone of the repository on Github, available at Github.
@@ -130,7 +133,7 @@ Text is written in its entirety by Steve Cook
 
 ### Media
 #### Readme Images
-Images used in this Readme have been sourced through UnSplash, a Figma Plugin, and are used by permission. They can be found at the following addresses:
+Some images used in this Readme have been sourced through UnSplash, a Figma Plugin, and are used by permission. They can be found at the following addresses:
 + 
 
 #### Game Images
