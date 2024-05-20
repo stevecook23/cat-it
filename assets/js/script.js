@@ -47,6 +47,13 @@ function initializeGame() {
     document.getElementById('gameStartAgain').addEventListener('click', resetGame);
     document.getElementById('resetHighScore').addEventListener('click', highScoreReset);
     document.getElementById('resetHighScoreLoss').addEventListener('click', highScoreReset);
+    loadHighScore();
+    $('#loss').on('show.bs.modal', onLossModalDisplay);
+}
+    
+function onLossModalDisplay() {
+    document.getElementById("gamescore").innerHTML = "Your score: " + score;
+    document.getElementById("gamehighscore").innerHTML = "High score: " + localStorage.getItem('highScore');
 }
 
 /**
@@ -135,11 +142,6 @@ function changeBackgroundToPlayTime() {
         gamespace.style.backgroundImage = "url('assets/images/default_background.png')";
     }, 1000);
 }
-
-/**
- * Function to load the high score from local storage
- */
-loadHighScore();
 
 /**
  * Function to randomly play one of the audio files;
@@ -274,14 +276,6 @@ function resetGame() {
     buttonPress = '';
     startGame();
 }
-
-/** 
- * Updates the score on the modal when the game is lost
- */
-$('#loss').on('show.bs.modal', function () {
-    document.getElementById("gamescore").innerHTML = "Your score: " + score;
-    document.getElementById("gamehighscore").innerHTML = "High score: " + localStorage.getItem('highScore');
-});
 
 /**
  * Progress Bar that counts down as the time runs out

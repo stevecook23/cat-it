@@ -51,9 +51,6 @@ The game images presented here are not final, and are indicative of what a user 
 ### Game Over
 ![Game Over Game State](readme_docs/prototype/game_over.png "Game Over Game State")
 
-### High Scores
-![High Scores Game State](readme_docs/prototype/high_scores.png "High Score Game State")
-
 ## Upcoming features
 + Hard Mode - there are various options for making this harder, such as moving where the icons are (rotating them around and giving some warning to the player that this is happening); adding a fifth, sixth, etc icon; or chaining two or more actions together before requiring input from the player. These are all potential upgrades for this game.
 + High Scores - as depicted above, a table of high scores would be a good feature to have. Unfortunately, during creating this project, that high score table was not within the scope of this project. Instead, I focused on saving just the player's most recent high score in local storage. However, it would make an excellent extension for ths project in the future.
@@ -68,6 +65,7 @@ The game images presented here are not final, and are indicative of what a user 
 + During time when Instruction Modal is onscreen: Clicking inside game space but not on buttons should have no effect
 + During time when Instruction Modal is onscreen: Clicking on the 'Reset High Score' button should bring up an alert in the browser, and the score should be reset, but not close the Modal
 + During time when Instruction Modal is onscreen: Clicking on the button to start the game should close the Modal and begin the game after a pause of 1000ms
+![Test Case One](readme_docs/testcases/test_case_one.png "Test Case One")
 
 ### Test Case: Game General
 + Click outside game space; should have no effect on game
@@ -80,11 +78,13 @@ The game images presented here are not final, and are indicative of what a user 
 + WHen the game is active: If the incorrect button is pressed, not matching the audio command given, the Loss Modal should appear
 + When the game is active: When the correct button is activated that corresponds with the audio instruction given, another command should be given and the timer reduced by 10ms
 + When the game is active: Although small decrements in the timer may not be visible on a round-to-round basis, over time it should become apparent that the timer has decreased
+![Test Case Two](readme_docs/testcases/test_case_two.png "Test Case Two")
 
 ### Test case: Loss Modal Onscreen
 + When the Loss Modal is onscreen: Clicking 'Reset High Score' button should bring up an alert in the browser, and the score should be reset, but not close the Modal
 + When the Loss Modal is onscreen: Clicking inside the game space, but not on the buttons, should have no effect
 + When the Loss Modal is onscreen: Clicking the 'Play again' button should reset the game, but not the high score value
+![Test Case Three](readme_docs/testcases/test_case_three.png "Test Case Three")
 
 ### Bugs discovered
 + Properly aligning the square buttons in the four corners of the game space was probably among the hardest parts of designing this, as I could align them in other places fairly easily. Ultimately I solved this with CSS, but I have since broken this alignment at least once while trying to tweak and make more efficient my CSS.
@@ -147,7 +147,7 @@ Text is written in its entirety by Steve Cook
 
 ### Media
 #### Readme Images
-Some images used in this Readme have been sourced through UnSplash, a Figma Plugin, and are used by permission. They can be found at the following addresses:
+Some images used during initial concept and during development have been sourced through UnSplash, a Figma Plugin, and are used by permission. Although they are not visible in the final product, I am grateful for their use. They can be found at the following addresses:
 + <a href="https://unsplash.com/photos/gray-kitten-sitting-on-floor-fEK4jvgnApg" target="_blank">Stock image used for Default Wireframe</a>
 + <a href="https://unsplash.com/photos/cute-brown-cat-looking-at-appetizing-homemade-pancakes-on-plate-with-fresh-berries-jam-honey-and-sourcream-on-table-pl2lEC0d58I" target="_blank">Stock image used for Stroke It Wireframe (later renamed to Pet It)</a>
 + <a href="https://unsplash.com/photos/selective-focus-photography-of-lying-russian-blue-cat-N8lcQwgx4so" target="_blank">Stock image used for Play Time Wireframe</a>
@@ -155,7 +155,7 @@ Some images used in this Readme have been sourced through UnSplash, a Figma Plug
 + <a href="https://unsplash.com/photos/cute-brown-cat-looking-at-appetizing-homemade-pancakes-on-plate-with-fresh-berries-jam-honey-and-sourcream-on-table-pl2lEC0d58I" target="_blank">Stock image used for Feed It Wireframe</a>
 
 #### Game Images
-Images for this game were made by Susan Cook and used with permission
+Images for this game were made by Susan Cook and used with permission. You can find more of her work at <a href="https://www.susancook.me/" target="_blank">her website</a>.
 
 #### Audio
 Audio for this game was recorded from the Pi artificial intelligence assistant.
