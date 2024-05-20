@@ -232,8 +232,8 @@ function playAudio(audioFile) {
  * Modal to bring up on loss of game
  */
 function loadLossModal() {
-    $('#loss').modal('show');
     updateHighScore();
+    $('#loss').modal('show');
 }
 
 /**
