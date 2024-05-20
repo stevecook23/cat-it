@@ -53,7 +53,7 @@ The game images presented here are not final, and are indicative of what a user 
 
 ## Upcoming features
 + Hard Mode - there are various options for making this harder, such as moving where the icons are (rotating them around and giving some warning to the player that this is happening); adding a fifth, sixth, etc icon; or chaining two or more actions together before requiring input from the player. These are all potential upgrades for this game.
-+ High Scores - as depicted above, a table of high scores would be a good feature to have. Unfortunately, during creating this project, that high score table was not within the scope of this project. Instead, I focused on saving just the player's most recent high score in local storage. However, it would make an excellent extension for ths project in the future.
++ High Scores - a table of high scores would be a good feature to have. Unfortunately, during creating this project, that high score table was not within the scope of this project. Instead, I focused on saving just the player's most recent high score in local storage. However, it would make an excellent extension for ths project in the future.
 
 ## Technology
 + This website was made in its entirety using Visual Code Studio
