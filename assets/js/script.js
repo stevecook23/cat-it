@@ -233,6 +233,7 @@ function playAudio(audioFile) {
  */
 function loadLossModal() {
     updateHighScore();
+    onLossModalDisplay();
     $('#loss').modal('show');
 }
 
